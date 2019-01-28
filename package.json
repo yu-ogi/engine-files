@@ -1,0 +1,60 @@
+{
+  "name": "@akashic/engine-files",
+  "version": "2.1.9",
+  "description": "A library that manages versions of libraries related to Akashic Engine",
+  "main": "index.js",
+  "scripts": {
+    "clean": "shx rm -rf ./dist",
+    "build": "npm run clean && npm run build:full && npm run build:canvas && npm run build:gr",
+    "build:full": "npm run build:full:parts && npm run build:full:zip",
+    "build:full:parts": "node build/buildParts full",
+    "build:full:zip": "shx cp -r dist/raw/full akashic_engine && zip -r dist/akashic_engine.zip ./akashic_engine && shx rm -r akashic_engine",
+    "build:canvas": "npm run build:canvas:parts && npm run build:canvas:zip",
+    "build:canvas:parts": "node build/buildParts canvas",
+    "build:canvas:zip": "shx cp -r dist/raw/canvas akashic_engine && zip -r dist/akashic_engine.canvas.zip ./akashic_engine && shx rm -r akashic_engine",
+    "build:gr": "npm run build:gr:parts && npm run build:gr:zip",
+    "build:gr:parts": "shx mkdir -p dist/raw/gr/ && npm run build:gr:ae && npm run build:gr:gdr",
+    "build:gr:ae": "browserify -r @akashic/akashic-engine/lib/main.node.js:@akashic/akashic-engine > dist/raw/gr/akashic-engine.js",
+    "build:gr:gdr": "browserify -r @akashic/game-driver -x @akashic/akashic-engine > dist/raw/gr/game-driver.js",
+    "build:gr:zip": "zip -jr dist/akashic_engine-gr.zip ./dist/raw/gr/",
+    "update-modules": "node build/updateInnerModules",
+    "test": "npm run lint:md",
+    "lint:md": "remark ./*.md --frail --no-stdout --quiet --rc-path ./.remarkrc"
+  },
+  "keywords": [],
+  "author": "DWANGO Co., Ltd.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akashic-games/engine-files.git"
+  },
+  "files": [
+    "src",
+    "dist",
+    "index.js",
+    "index.d.ts"
+  ],
+  "dependencies": {
+    "@akashic/akashic-engine": "2.4.10",
+    "@akashic/akashic-pdi": "2.4.1",
+    "@akashic/game-driver": "1.4.11"
+  },
+  "devDependencies": {
+    "@akashic/pdi-browser": "1.5.5",
+    "browserify": "~14.3.0",
+    "fs": "~0.0.1-security",
+    "npm": "~6.1.0",
+    "remark-cli": "~2.0.0",
+    "remark-lint": "~5.0.1",
+    "semver": "~5.5.0",
+    "shelljs": "~0.8.2",
+    "shx": "~0.2.2",
+    "uglify-js": "~3.4.6"
+  },
+  "optionalDependencies": {
+    "@akashic/playlog-client": "4.0.0"
+  },
+  "publishConfig": {
+    "@akashic:registry": "https://registry.npmjs.org/"
+  }
+}
