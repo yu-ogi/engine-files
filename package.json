@@ -1,0 +1,57 @@
+{
+  "name": "@akashic/engine-files",
+  "version": "1.1.5",
+  "description": "A library that manages versions of libraries related to Akashic Engine",
+  "main": "index.js",
+  "scripts": {
+    "clean": "shx rm -rf ./dist",
+    "build": "npm run clean && npm run build:client && npm run build:gr",
+    "build:client": "npm run build:client:parts && npm run build:client:zip",
+    "build:client:parts": "node build/buildParts",
+    "build:client:zip": "shx cp -r dist/raw/client/ akashic_engine && zip -r dist/akashic_engine.zip ./akashic_engine && shx rm -r akashic_engine",
+    "build:gr": "npm run build:gr:parts && npm run build:gr:zip",
+    "build:gr:parts": "shx mkdir -p dist/raw/gr/ && npm run build:gr:ae && npm run build:gr:gdr",
+    "build:gr:ae": "browserify -r @akashic/akashic-engine/lib/main.node.js:@akashic/akashic-engine > dist/raw/gr/akashic-engine.js",
+    "build:gr:gdr": "browserify -r @akashic/game-driver -x @akashic/akashic-engine > dist/raw/gr/game-driver.js",
+    "build:gr:zip": "zip -jr dist/akashic_engine-gr.zip ./dist/raw/gr/",
+    "update-modules": "node build/updateInnerModules",
+    "test": "npm run lint:md",
+    "lint:md": "remark ./*.md --frail --no-stdout --quiet --rc-path ./.remarkrc"
+  },
+  "keywords": [],
+  "author": "DWANGO Co., Ltd.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akashic-games/engine-files.git"
+  },
+  "files": [
+    "src",
+    "dist",
+    "index.js",
+    "index.d.ts"
+  ],
+  "dependencies": {
+    "@akashic/akashic-engine": "1.12.17",
+    "@akashic/akashic-pdi": "1.10.1",
+    "@akashic/game-driver": "0.11.19"
+  },
+  "devDependencies": {
+    "@akashic/pdi-browser": "0.10.14",
+    "browserify": "~14.3.0",
+    "fs": "~0.0.1-security",
+    "npm": "~6.1.0",
+    "remark-cli": "~2.0.0",
+    "remark-lint": "~5.0.1",
+    "semver": "~5.5.0",
+    "shelljs": "~0.8.2",
+    "shx": "~0.2.2",
+    "uglify-js": "~3.4.2"
+  },
+  "optionalDependencies": {
+    "@akashic/playlog-client": "4.0.0"
+  },
+  "publishConfig": {
+    "@akashic:registry": "https://registry.npmjs.org/"
+  }
+}
