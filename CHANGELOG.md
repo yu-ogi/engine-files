@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.1.17
+* @akashic/akashic-engine: 2.4.14
+* @akashic/akashic-pdi: 2.4.1
+* @akashic/game-driver: 1.4.11
+* @akashic/pdi-browser: 1.5.13
+* @akashic/playlog-client: 4.0.0
+
+(2.1.16 の playlog-client が正常でなかったため、バージョンを戻しています)
+
 ## 2.1.16
 * @akashic/akashic-engine: 2.4.14
 * @akashic/akashic-pdi: 2.4.1
