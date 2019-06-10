@@ -34,11 +34,13 @@ npm run build:gr:parts
 
 * `./dist/akashic_engine.zip`
 * `./dist/akashic_engine.canvas.zip`
+* `./dist/akashic_engine.debug.zip`
+* `./dist/akashic_engine.canvas.debug.zip`
 * `./dist/akashic_engine-gr.zip`
 
 それぞれの圧縮前のファイルは `./dist/raw/` に出力されます。
 
-`akashic_engine.[canvas.]zip` は、`engineFilesV{n}_{n}_{n}.js` を含む zip ファイルです(詳細は次節)。
+`akashic_engine.[canvas.][debug.]zip` は、`engineFilesV{n}_{n}_{n}.js` を含む zip ファイルです(詳細は次節)。
 
 `akashic_engine-gr.zip` は、 `akashic-enigne.js` と `game-driver.js` を含む zip ファイルです。
 この二つはグローバル関数 `require()` を定義するスクリプトファイルで、
