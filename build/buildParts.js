@@ -36,7 +36,7 @@ function buildEngineFiles(version, buildMode, inputDir, outputDir, debug) {
 		debug
 	);
 }
-function buildPlayLogClient(version, inputDir, outputDir, debug) {
+function buildPlayLogClient(version, inputDir, outputDir) {
 	if (!fs.existsSync(path.join(__dirname, "..", "node_modules", "@akashic", "playlog-client"))) {
 		console.log("playlog-client-file does not exist, so skip to build playlog-client.");
 		return;
@@ -45,8 +45,7 @@ function buildPlayLogClient(version, inputDir, outputDir, debug) {
 		"playlogClient.js",
 		`playlogClientV${version}.js`,
 		inputDir,
-		outputDir,
-		debug
+		outputDir
 	);
 }
 
