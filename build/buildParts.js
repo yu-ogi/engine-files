@@ -19,9 +19,9 @@ function build(inputFileName, outputFileName, inputDir, outputDir, debug, es5Dow
 	const uglifyjs = path.join(__dirname, "..", "node_modules", ".bin", "uglifyjs");
 	let ret;
 	if (debug) {
-		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${uglifyjs} ${es5Downpile ? "--ecma 5" : ""} -o ${path.join(outputDir, outputFileName)}`);
+		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${es5Downpile ? "babel |" : ""} -d > ${path.join(outputDir, outputFileName)}`);
 	} else {
-		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${uglifyjs} ${es5Downpile ? "--ecma 5" : ""} --comments -o ${path.join(outputDir, outputFileName)}`);
+		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${es5Downpile ? "babel |" : ""} ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`);
 	}
 	if (0 < ret.code) {
 		throw new Error("error occurred");
