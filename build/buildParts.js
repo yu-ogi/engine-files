@@ -19,7 +19,7 @@ function build(inputFileName, outputFileName, inputDir, outputDir, debug) {
 	const uglifyjs = path.join(__dirname, "..", "node_modules", ".bin", "uglifyjs");
 	let ret;
 	if (debug) {
-		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} -d > ${path.join(outputDir, outputFileName)}`);
+		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -d -s ${path.basename(outputFileName, ".js")} > ${path.join(outputDir, outputFileName)}`);
 	} else {
 		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`);
 	}
