@@ -14,14 +14,14 @@ if (! /^(full|canvas)$/.test(buildMode)) {
 }
 
 console.log("start to build files");
-function build(inputFileName, outputFileName, inputDir, outputDir, debug) {
+function build(inputFileName, outputFileName, inputDir, outputDir, debug, es5Downpile = false) {
 	const browserify = path.join(__dirname, "..", "node_modules", ".bin", "browserify");
 	const uglifyjs = path.join(__dirname, "..", "node_modules", ".bin", "uglifyjs");
 	let ret;
 	if (debug) {
-		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -d -s ${path.basename(outputFileName, ".js")} > ${path.join(outputDir, outputFileName)}`);
+		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -d -s ${path.basename(outputFileName, ".js")} | ${es5Downpile ? "babel |" : ""} > ${path.join(outputDir, outputFileName)}`);
 	} else {
-		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`);
+		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${es5Downpile ? "babel |" : ""} ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`);
 	}
 	if (0 < ret.code) {
 		throw new Error("error occurred");
@@ -45,7 +45,9 @@ function buildPlayLogClient(version, inputDir, outputDir) {
 		"playlogClient.js",
 		`playlogClientV${version}.js`,
 		inputDir,
-		outputDir
+		outputDir,
+		undefined,
+		true
 	);
 }
 
