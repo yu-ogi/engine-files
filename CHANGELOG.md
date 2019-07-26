@@ -7,7 +7,7 @@
 * @akashic/pdi-browser: 1.5.14
 * @akashic/playlog-client: 6.0.9
 
-(このリポジトリの利用側の事情のため、 v2.1.20 と同一の内容でpublishしなおしています)
+(v2.1.20 で壊れていたビルドスクリプトの修正のみ行ったため、 v2.1.20 と同一の内容でpublishしなおしています)
 
 ## 2.1.20
 * @akashic/akashic-engine: 2.4.15
