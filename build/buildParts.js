@@ -17,12 +17,10 @@ console.log("start to build files");
 function build(inputFileName, outputFileName, inputDir, outputDir, debug, es5Downpile = false) {
 	const browserify = path.join(__dirname, "..", "node_modules", ".bin", "browserify");
 	const uglifyjs = path.join(__dirname, "..", "node_modules", ".bin", "uglifyjs");
-	let ret;
-	if (debug) {
-		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -d -s ${path.basename(outputFileName, ".js")} | ${es5Downpile ? "babel |" : ""} > ${path.join(outputDir, outputFileName)}`);
-	} else {
-		ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} -s ${path.basename(outputFileName, ".js")} | ${es5Downpile ? "babel |" : ""} ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`);
-	}
+	const debugOption = debug ? "-d" : "";
+	const babel = es5Downpile ? "| babel" : "";
+	const outputFile = debug ? `> ${path.join(outputDir, outputFileName)}` : `| ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`;
+	const ret = sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} ${debugOption} -s ${path.basename(outputFileName, ".js")} ${babel} ${outputFile}`);
 	if (0 < ret.code) {
 		throw new Error("error occurred");
 	}
