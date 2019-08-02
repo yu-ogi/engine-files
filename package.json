@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "shx rm -rf ./dist",
     "build": "npm run clean && npm run build:full && npm run build:canvas && npm run build:gr",
+    "build:require:playlog-client": "shx test -e node_modules/@akashic/playlog-client && npm run build",
     "build:full": "npm run build:full:parts && npm run build:full:zip:debug && npm run build:full:zip:release",
     "build:full:parts": "node build/buildParts full",
     "build:full:zip:debug": "shx cp -r dist/raw/debug/full akashic_engine && zip -r dist/akashic_engine.debug.zip ./akashic_engine && shx rm -r akashic_engine",
