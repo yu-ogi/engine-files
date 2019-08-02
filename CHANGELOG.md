@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.1.22
+* @akashic/akashic-engine: 2.4.15
+* @akashic/akashic-pdi: 2.4.2
+* @akashic/game-driver: 1.4.14
+* @akashic/pdi-browser: 1.5.14
+* @akashic/playlog-client: 6.0.9
+
+(内部のビルドスクリプトの修正のみ行ったため、 v2.1.21 と同一の内容でpublishしなおしています)
+
 ## 2.1.21
 * @akashic/akashic-engine: 2.4.15
 * @akashic/akashic-pdi: 2.4.2
