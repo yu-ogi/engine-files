@@ -1,11 +1,12 @@
 {
   "name": "@akashic/engine-files",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "A library that manages versions of libraries related to Akashic Engine",
   "main": "index.js",
   "scripts": {
     "clean": "shx rm -rf ./dist",
     "build": "npm run clean && npm run build:client && npm run build:gr",
+    "build:require:playlog-client": "shx test -e node_modules/@akashic/playlog-client && npm run build",
     "build:client": "npm run build:client:parts && npm run build:client:zip",
     "build:client:parts": "node build/buildParts",
     "build:client:zip": "shx cp -r dist/raw/client/ akashic_engine && zip -r dist/akashic_engine.zip ./akashic_engine && shx rm -r akashic_engine",
