@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.1.23
+* @akashic/akashic-engine: 2.5.1
+* @akashic/akashic-pdi: 2.6.0
+* @akashic/game-driver: 1.6.0
+* @akashic/pdi-browser: 1.7.0
+* @akashic/playlog-client: 6.0.38
+
 ## 2.1.22
 * @akashic/akashic-engine: 2.4.15
 * @akashic/akashic-pdi: 2.5.0
