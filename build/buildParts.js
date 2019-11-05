@@ -35,12 +35,12 @@ const inputDir = path.join(__dirname, "..", "src");
 const outputDir = path.join(__dirname, "..", "dist", "raw", "client");
 sh.mkdir("-p", outputDir);
 buildEngineFiles(
-	(packageJson["version"]).replace(/\./g, "_"),
+	(packageJson["version"]).replace(/[\.-]/g, "_"),
 	inputDir,
 	outputDir
 );
 buildPlayLogClient(
-	(packageJson["optionalDependencies"]["@akashic/playlog-client"]).replace(/\./g, "_"),
+	(packageJson["optionalDependencies"]["@akashic/playlog-client"]).replace(/[\.-]/g, "_"),
 	inputDir,
 	outputDir
 );
