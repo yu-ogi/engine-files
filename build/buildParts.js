@@ -74,12 +74,12 @@ try {
 
 	console.log("build playlog-client");
 	buildPlayLogClient(
-		(packageJson["optionalDependencies"]["@akashic/playlog-client"]).replace(/\./g, "_"),
+		(packageJson["optionalDependencies"]["@akashic/playlog-client"]).replace(/[\.-]/g, "_"),
 		inputDir,
 		path.join(__dirname, "..", "dist", "raw", "release", buildMode)
 	);
 	buildPlayLogClient(
-		(packageJson["optionalDependencies"]["@akashic/playlog-client"]).replace(/\./g, "_"),
+		(packageJson["optionalDependencies"]["@akashic/playlog-client"]).replace(/[\.-]/g, "_"),
 		inputDir,
 		path.join(__dirname, "..", "dist", "raw", "debug", buildMode)
 	);
