@@ -16,7 +16,7 @@
     "build:canvas:zip:release": "shx cp -r dist/raw/release/canvas akashic_engine && zip -r dist/akashic_engine.canvas.zip ./akashic_engine && shx rm -r akashic_engine",
     "build:gr": "npm run build:gr:parts && npm run build:gr:zip",
     "build:gr:parts": "shx mkdir -p dist/raw/gr/ && npm run build:gr:ae && npm run build:gr:gdr",
-    "build:gr:ae": "browserify -r @akashic/akashic-engine/lib/index.runtime.js:@akashic/akashic-engine > dist/raw/gr/akashic-engine.js",
+    "build:gr:ae": "browserify -r @akashic/akashic-engine/index.js:@akashic/akashic-engine > dist/raw/gr/akashic-engine.js",
     "build:gr:gdr": "browserify -r @akashic/game-driver -x @akashic/akashic-engine > dist/raw/gr/game-driver.js",
     "build:gr:zip": "zip -jr dist/akashic_engine-gr.zip ./dist/raw/gr/",
     "update-modules": "node build/updateInnerModules",
