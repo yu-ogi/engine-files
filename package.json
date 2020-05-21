@@ -1,6 +1,6 @@
 {
   "name": "@akashic/engine-files",
-  "version": "2.1.39",
+  "version": "2.1.40",
   "description": "A library that manages versions of libraries related to Akashic Engine",
   "main": "index.js",
   "scripts": {
@@ -57,7 +57,7 @@
     "uglify-js": "~3.4.6"
   },
   "optionalDependencies": {
-    "@akashic/playlog-client": "7.0.31"
+    "@akashic/playlog-client": "7.0.34"
   },
   "publishConfig": {
     "@akashic:registry": "https://registry.npmjs.org/"
