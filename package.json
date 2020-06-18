@@ -1,6 +1,6 @@
 {
   "name": "@akashic/engine-files",
-  "version": "2.1.40",
+  "version": "2.1.41",
   "description": "A library that manages versions of libraries related to Akashic Engine",
   "main": "index.js",
   "scripts": {
@@ -38,11 +38,11 @@
   ],
   "dependencies": {
     "@akashic/akashic-engine": "2.6.3",
-    "@akashic/akashic-pdi": "2.8.0",
-    "@akashic/game-driver": "1.8.0"
+    "@akashic/akashic-pdi": "2.9.0",
+    "@akashic/game-driver": "1.9.0"
   },
   "devDependencies": {
-    "@akashic/pdi-browser": "1.9.0",
+    "@akashic/pdi-browser": "1.10.0",
     "babel-preset-es2015": "^6.24.1",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
