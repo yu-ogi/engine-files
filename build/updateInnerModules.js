@@ -3,11 +3,12 @@ const semver = require("semver");
 const npm = require("npm");
 const fs = require("fs");
 
+// TODO 動作するようにする (現状では dist-tags が latest でないリポジトリが混在しているのでこのスクリプトは利用できない)
+
 console.log("start to update akashic-modules");
 const packageJsonPath = path.join(__dirname, "..", "package.json");
 const packageJson = require(packageJsonPath);
 const versionsAfterUpdate = {};
-// 本来akashic-pdiは不要だが、TypeScript が出力する JS に依存が(不必要に)残ってしまっているので、ないとビルド時にエラーで落ちてしまう
 const modules = [
 	{
 		name: "akashic-engine",
@@ -26,7 +27,7 @@ const modules = [
 		savingType: "optionalDependencies"
 	},
 	{
-		name: "akashic-pdi",
+		name: "pdi-types",
 		savingType: "dependencies"
 	}
 ];
