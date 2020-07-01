@@ -3,14 +3,21 @@ const fs = require("fs");
 
 console.log("start to update changelog");
 const packageJson = require(path.join(__dirname, "..", "package.json"));
-const replacedText = `# CHANGELOG
+const akashicModules = {};
+["dependencies", "devDependencies", "optionalDependencies"].forEach((item) => {
+	for (let libName in (packageJson[item] || {})) {
+		if (!/^@akashic\//.test(libName)) {
+			continue;
+		}
+		akashicModules[libName] = packageJson[item][libName];
+	}
+});
+let replacedText = `# CHANGELOG
 
-## ${packageJson["version"]}
-* @akashic/pdi-types: ${packageJson["dependencies"]["@akashic/pdi-types"]}
-* @akashic/akashic-engine: ${packageJson["dependencies"]["@akashic/akashic-engine"]}
-* @akashic/game-driver: ${packageJson["dependencies"]["@akashic/game-driver"]}
-* @akashic/pdi-browser: ${packageJson["devDependencies"]["@akashic/pdi-browser"]}
-* @akashic/playlog-client: ${packageJson["optionalDependencies"]["@akashic/playlog-client"]}`;
+## ${packageJson["version"]}`;
+Object.keys(akashicModules).forEach(name => {
+	replacedText += `\n* ${name}: ${akashicModules[name]}`;
+});
 const currentChangeLog = fs.readFileSync(path.join(__dirname, "..", "CHANGELOG.md")).toString();
 const nextChangeLog = currentChangeLog.replace("# CHANGELOG", replacedText);
 fs.writeFileSync(path.join(__dirname, "..", "CHANGELOG.md"), nextChangeLog);
