@@ -20,6 +20,7 @@
     "build:gr:gdr": "browserify -r @akashic/game-driver -x @akashic/akashic-engine > dist/raw/gr/game-driver.js",
     "build:gr:zip": "zip -jr dist/akashic_engine-gr.zip ./dist/raw/gr/",
     "update-modules": "node build/updateInnerModules",
+    "update-changelog": "node build/updateChangelog",
     "test": "npm run lint:md",
     "lint:md": "remark ./*.md --frail --no-stdout --quiet --rc-path ./.remarkrc"
   },
