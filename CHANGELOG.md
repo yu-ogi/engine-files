@@ -1,11 +1,11 @@
 # CHANGELOG
 
 ## 3.0.0-beta.7
-* @akashic/pdi-types: 1.0.1
-* @akashic/pdi-common-impl: 0.0.3
 * @akashic/akashic-engine: 3.0.0-beta.28
 * @akashic/game-driver: 2.0.0-beta.8
+* @akashic/pdi-types: 1.0.1
 * @akashic/pdi-browser: 2.0.0-beta.8
+* @akashic/pdi-common-impl: 0.0.3
 * @akashic/playlog-client: 7.0.32
 
 ## 3.0.0-beta.6
