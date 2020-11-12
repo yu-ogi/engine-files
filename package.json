@@ -1,6 +1,6 @@
 {
   "name": "@akashic/engine-files",
-  "version": "3.0.0-beta.10",
+  "version": "3.0.0-beta.11",
   "description": "A library that manages versions of libraries related to Akashic Engine",
   "main": "index.js",
   "scripts": {
@@ -39,12 +39,12 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@akashic/akashic-engine": "3.0.0-beta.36",
-    "@akashic/game-driver": "2.0.0-beta.11",
+    "@akashic/akashic-engine": "3.0.0-beta.37",
+    "@akashic/game-driver": "2.0.0-beta.12",
     "@akashic/pdi-types": "1.1.0"
   },
   "devDependencies": {
-    "@akashic/pdi-browser": "2.0.0-beta.10",
+    "@akashic/pdi-browser": "2.0.0-beta.11",
     "@akashic/pdi-common-impl": "0.0.4",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
@@ -60,7 +60,7 @@
     "uglify-js": "~3.4.6"
   },
   "optionalDependencies": {
-    "@akashic/playlog-client": "7.0.42"
+    "@akashic/playlog-client": "7.0.58"
   },
   "publishConfig": {
     "@akashic:registry": "https://registry.npmjs.org/"
