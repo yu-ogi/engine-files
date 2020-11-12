@@ -3,8 +3,6 @@ const semver = require("semver");
 const npm = require("npm");
 const fs = require("fs");
 
-// TODO 動作するようにする (現状では dist-tags が latest でないリポジトリが混在しているのでこのスクリプトは利用できない)
-
 console.log("start to update akashic-modules");
 const packageJsonPath = path.join(__dirname, "..", "package.json");
 const packageJson = require(packageJsonPath);
@@ -12,15 +10,18 @@ const versionsAfterUpdate = {};
 const modules = [
 	{
 		name: "akashic-engine",
-		savingType: "dependencies"
+		savingType: "dependencies",
+		tag: "next"
 	},
 	{
 		name: "game-driver",
-		savingType: "dependencies"
+		savingType: "dependencies",
+		tag: "next"
 	},
 	{
 		name: "pdi-browser",
 		savingType: "devDependencies",
+		tag: "next"
 	},
 	{
 		name: "playlog-client",
@@ -39,12 +40,12 @@ const promises = modules.map(function(module){
 				reject(err);
 				return;
 			}
-			npm.install(`@akashic/${module.name}@latest`, function(err) {
+			npm.install(`@akashic/${module.name}@${module.tag || "latest"}`, function(err) {
 				if (err) {
 					reject(err);
 					return;
 				}
-				npm.info(`@akashic/${module.name}@latest`, "version", function(err, version) {
+				npm.info(`@akashic/${module.name}@${module.tag || "latest"}`, "version", function(err, version) {
 					if (err) {
 						reject(err);
 						return;
@@ -76,7 +77,10 @@ Promise.all(promises).then(function() {
 		packageJson[module.savingType][`@akashic/${module.name}`] = versionsAfterUpdate[module.name];
 		console.log(`update @akashic/${module.name} to ${versionsAfterUpdate[module.name]}`);
 	});
-	packageJson["version"] = semver.inc(semver.valid(packageJson["version"]), 'patch');
+
+	// TODO 正式リリース後は semver.inc(..., "patch");
+	packageJson["version"] = semver.inc(semver.valid(packageJson["version"]), "prerelease", "beta");
+
 	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 	console.log(`update version to ${packageJson["version"]}. complete to update akashic-modules`);
 }).catch(function(err) {
