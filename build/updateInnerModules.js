@@ -10,18 +10,15 @@ const versionsAfterUpdate = {};
 const modules = [
 	{
 		name: "akashic-engine",
-		savingType: "dependencies",
-		tag: "next"
+		savingType: "dependencies"
 	},
 	{
 		name: "game-driver",
-		savingType: "dependencies",
-		tag: "next"
+		savingType: "dependencies"
 	},
 	{
 		name: "pdi-browser",
-		savingType: "devDependencies",
-		tag: "next"
+		savingType: "devDependencies"
 	},
 	{
 		name: "playlog-client",
@@ -78,8 +75,7 @@ Promise.all(promises).then(function() {
 		console.log(`update @akashic/${module.name} to ${versionsAfterUpdate[module.name]}`);
 	});
 
-	// TODO 正式リリース後は semver.inc(..., "patch");
-	packageJson["version"] = semver.inc(semver.valid(packageJson["version"]), "prerelease", "beta");
+	packageJson["version"] = semver.inc(semver.valid(packageJson["version"]), "patch");
 
 	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 	console.log(`update version to ${packageJson["version"]}. complete to update akashic-modules`);
