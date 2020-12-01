@@ -60,7 +60,7 @@
     "uglify-js": "~3.4.6"
   },
   "optionalDependencies": {
-    "@akashic/playlog-client": "7.0.58"
+    "@akashic/playlog-client": "7.0.61"
   },
   "publishConfig": {
     "@akashic:registry": "https://registry.npmjs.org/"
