@@ -61,6 +61,7 @@
     "@akashic/playlog-client": "7.0.61"
   },
   "publishConfig": {
-    "@akashic:registry": "https://registry.npmjs.org/"
+    "@akashic:registry": "https://registry.npmjs.org/",
+    "tag": "for_ae2x"
   }
 }
