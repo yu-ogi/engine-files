@@ -7,7 +7,6 @@ console.log("start to update akashic-modules");
 const packageJsonPath = path.join(__dirname, "..", "package.json");
 const packageJson = require(packageJsonPath);
 const versionsAfterUpdate = {};
-// 本来akashic-pdiは不要だが、TypeScript が出力する JS に依存が(不必要に)残ってしまっているので、ないとビルド時にエラーで落ちてしまう
 const modules = [
 	{
 		name: "akashic-engine",
@@ -19,14 +18,14 @@ const modules = [
 	},
 	{
 		name: "pdi-browser",
-		savingType: "devDependencies",
+		savingType: "devDependencies"
 	},
 	{
 		name: "playlog-client",
 		savingType: "optionalDependencies"
 	},
 	{
-		name: "akashic-pdi",
+		name: "pdi-types",
 		savingType: "dependencies"
 	}
 ];
@@ -38,12 +37,12 @@ const promises = modules.map(function(module){
 				reject(err);
 				return;
 			}
-			npm.install(`@akashic/${module.name}@latest`, function(err) {
+			npm.install(`@akashic/${module.name}@${module.tag || "latest"}`, function(err) {
 				if (err) {
 					reject(err);
 					return;
 				}
-				npm.info(`@akashic/${module.name}@latest`, "version", function(err, version) {
+				npm.info(`@akashic/${module.name}@${module.tag || "latest"}`, "version", function(err, version) {
 					if (err) {
 						reject(err);
 						return;
@@ -75,7 +74,9 @@ Promise.all(promises).then(function() {
 		packageJson[module.savingType][`@akashic/${module.name}`] = versionsAfterUpdate[module.name];
 		console.log(`update @akashic/${module.name} to ${versionsAfterUpdate[module.name]}`);
 	});
-	packageJson["version"] = semver.inc(semver.valid(packageJson["version"]), 'patch');
+
+	packageJson["version"] = semver.inc(semver.valid(packageJson["version"]), "patch");
+
 	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 	console.log(`update version to ${packageJson["version"]}. complete to update akashic-modules`);
 }).catch(function(err) {
