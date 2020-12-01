@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.0.0
+## 3.0.1
 * @akashic/akashic-engine: 3.0.0
 * @akashic/game-driver: 2.0.0
 * @akashic/pdi-types: 1.1.0
