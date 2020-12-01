@@ -11,15 +11,18 @@ const versionsAfterUpdate = {};
 const modules = [
 	{
 		name: "akashic-engine",
-		savingType: "dependencies"
+		savingType: "dependencies",
+		tag: "for_ae2x"
 	},
 	{
 		name: "game-driver",
-		savingType: "dependencies"
+		savingType: "dependencies",
+		tag: "for_ae2x"
 	},
 	{
 		name: "pdi-browser",
 		savingType: "devDependencies",
+		tag: "for_ae2x"
 	},
 	{
 		name: "playlog-client",
@@ -38,12 +41,12 @@ const promises = modules.map(function(module){
 				reject(err);
 				return;
 			}
-			npm.install(`@akashic/${module.name}@latest`, function(err) {
+			npm.install(`@akashic/${module.name}@${module.tag || "latest"}`, function(err) {
 				if (err) {
 					reject(err);
 					return;
 				}
-				npm.info(`@akashic/${module.name}@latest`, "version", function(err, version) {
+				npm.info(`@akashic/${module.name}@${module.tag || "latest"}`, "version", function(err, version) {
 					if (err) {
 						reject(err);
 						return;
