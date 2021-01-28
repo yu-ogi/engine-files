@@ -27,6 +27,10 @@ const modules = [
 	{
 		name: "pdi-types",
 		savingType: "dependencies"
+	},
+	{
+		name: "game-configuration",
+		savingType: "dependencies"
 	}
 ];
 
