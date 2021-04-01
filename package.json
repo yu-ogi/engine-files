@@ -1,6 +1,6 @@
 {
   "name": "@akashic/engine-files",
-  "version": "3.0.10",
+  "version": "3.0.11",
   "description": "A library that manages versions of libraries related to Akashic Engine",
   "main": "index.js",
   "scripts": {
@@ -39,9 +39,9 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@akashic/akashic-engine": "3.0.3",
+    "@akashic/akashic-engine": "3.0.4",
     "@akashic/game-configuration": "1.0.1",
-    "@akashic/game-driver": "2.0.3",
+    "@akashic/game-driver": "2.1.0",
     "@akashic/pdi-types": "1.1.1"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "uglify-js": "~3.4.6"
   },
   "optionalDependencies": {
-    "@akashic/playlog-client": "7.0.61"
+    "@akashic/playlog-client": "7.0.62"
   },
   "publishConfig": {
     "@akashic:registry": "https://registry.npmjs.org/"
