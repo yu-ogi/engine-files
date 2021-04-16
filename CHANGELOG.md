@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0.15
+`window` が存在しない環境では pdi-browser を require しないように修正
+
 ## 3.0.14
 * @akashic/akashic-engine: 3.0.4
 * @akashic/game-configuration: 1.0.1
