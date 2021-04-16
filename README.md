@@ -71,7 +71,9 @@ export interface EngineFilesObject {
 ファイル名は `engineFilesV0_0_1.js` のような形式です (V の後はこのモジュール (engine-files) のバージョンです)。
 非 CommonJS 環境では、ファイル名の拡張子以外の部分 (e.g. `engineFilesV0_0_1`) の名前のグローバル変数を定義します。
 
-Canvas のみ版 (`akashic_enigne.canvas.zip`) では、 `engineFilesV0_0_1_Canvas.js` のようなファイル名と、それに対応する変数名になります。
+Canvas のみ版 (`akashic_engine.canvas.zip`) では、 `engineFilesV0_0_1_Canvas.js` のようなファイル名と、それに対応する変数名になります。
+
+Node.js など `window` が存在しない環境では pdiBrowser の値が `null` になります。
 
 ## npm モジュールとして利用
 
