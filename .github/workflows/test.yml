@@ -35,7 +35,8 @@ jobs:
       - name: Run test
         run: |
           npm ci
-          npm run build
+          npm run build:full:parts
+          npm run build:canvas:parts
           npm test
       - name: Archive artifact
         uses: actions/upload-artifact@v2
