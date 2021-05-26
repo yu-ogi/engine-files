@@ -11,22 +11,37 @@ declare global {
 
 const packageJSON = require("../package.json");
 const version = packageJSON.version.replace(/[\.-]/g, "_");
-const subDirectories = ["debug/full", "debug/canvas", "release/full", "release/canvas"];
 const seed = 42;
+const engineFilesPaths = [
+	{
+		subDirectory: "debug/full",
+		engineFilesName: `engineFilesV${version}.js`
+	},
+	{
+		subDirectory: "debug/canvas",
+		engineFilesName: `engineFilesV${version}_Canvas.js`
+	},
+	{
+		subDirectory: "release/full",
+		engineFilesName: `engineFilesV${version}.js`
+	},
+	{
+		subDirectory: "release/canvas",
+		engineFilesName: `engineFilesV${version}_Canvas.js`
+	}
+];
 
 describe("reftest - acobench", (): void => {
-	for (const subDirectory of subDirectories) {
-		describe(subDirectory, () => {
-			const subDirectory = "debug/full";
-
+	for (const engineFilesPath of engineFilesPaths) {
+		describe(engineFilesPath.subDirectory, () => {
 			beforeAll(() => {
-				process.env.ENGINE_FILES_V3_PATH = path.resolve(__dirname, "..", "dist", "raw", subDirectory, `engineFilesV${version}.js`);
+				process.env.ENGINE_FILES_V3_PATH = path.resolve(__dirname, "..", "dist", "raw", engineFilesPath.subDirectory, engineFilesPath.engineFilesName);
 			});
 
 			test("compares pixels", async () => {
 				const results = await runScenario({
 					entrySceneName: "entry-scene",
-					outputDir: subDirectory,
+					outputDir: engineFilesPath.subDirectory,
 					contentPath: path.join(__dirname, "fixtures", "acobench"),
 					scenarios: require("./fixtures/acobench/scenario.json"),
 					threshold: 0.1,
