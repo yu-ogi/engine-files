@@ -24,7 +24,6 @@ export async function runScenario(params: RunScenarioParameterObject): Promise<R
 	const { GameContext } = await import("@akashic/headless-akashic");
 
 	const contentPath = params.contentPath;
-	const expectedPath = path.join(contentPath, "expected");
 	const actualPath = path.join(contentPath, "actual", params.outputDir);
 	const diffPath = path.join(contentPath, "diff", params.outputDir);
 	const threshold = params.threshold;
@@ -73,7 +72,7 @@ export async function runScenario(params: RunScenarioParameterObject): Promise<R
 
 		if (scenario.saveScreenshot) {
 			const canvasContext = client.getPrimarySurfaceCanvas().getContext("2d");
-			const expected = PNG.sync.read(fs.readFileSync(path.join(expectedPath, scenario.saveScreenshot.expectedFilename)));
+			const expected = PNG.sync.read(fs.readFileSync(path.join(contentPath, scenario.saveScreenshot.expectedFilename)));
 			const actual = canvasContext.getImageData(0, 0, width, height);
 			const diff = new PNG({ width, height });
 

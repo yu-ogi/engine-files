@@ -2,7 +2,7 @@
   {
     "age": 30,
     "saveScreenshot": {
-      "expectedFilename": "age_0030_seed_42.png"
+      "expectedFilename": "./expected/age_0030_seed_42.png"
     }
   },
   {
@@ -30,19 +30,19 @@
   {
     "age": 60,
     "saveScreenshot": {
-      "expectedFilename": "age_0060_seed_42.png"
+      "expectedFilename": "./expected/age_0060_seed_42.png"
     }
   },
   {
     "age": 90,
     "saveScreenshot": {
-      "expectedFilename": "age_0090_seed_42.png"
+      "expectedFilename": "./expected/age_0090_seed_42.png"
     }
   },
   {
     "age": 120,
     "saveScreenshot": {
-      "expectedFilename": "age_0120_seed_42.png"
+      "expectedFilename": "./expected/age_0120_seed_42.png"
     }
   },
   {
@@ -70,7 +70,7 @@
   {
     "age": 150,
     "saveScreenshot": {
-      "expectedFilename": "age_0150_seed_42.png"
+      "expectedFilename": "./expected/age_0150_seed_42.png"
     }
   }
 ]
