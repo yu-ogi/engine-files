@@ -99,6 +99,27 @@ import { akashicEngine as g } from "@akashic/engine-files";
 2. `version` を更新し、
 3. `npm run build`
 
+## テスト
+
+`npm test` コマンドで reftest が実行されます。
+reftest で利用するコンテンツは `tests/fixtures/*/game.json` として格納し、 game.json と同一の場所にその他必要な設定ファイルとテスト結果を出力するディレクトリを配置する必要があります。
+
+| ディレクトリ/ファイル | 内容 |
+| ------------- | ------------- |
+| `scenario.json` | コンテンツの動作を定義する設定ファイル。 |
+| `expected/` | scenario.json で定義された動作の正解画像データ。 |
+| `actual/debug/full/` | デバッグビルドされた成果物の実際の出力画像データ。 |
+| `actual/debug/canvas/` | Canvas 版でデバッグビルドされた成果物の実際の出力画像データ。 |
+| `actual/release/full/` | リリースビルドされた成果物の実際の出力画像データ。 |
+| `actual/release/canvas/` | Canvas 版でリリースビルドされた成果物の実際の出力画像データ。 |
+| `diff/debug/full/` | デバッグビルドされた成果物の実際の出力画像データと正解画像データとの差分画像データ。 |
+| `diff/debug/canvas/` | Canvas 版でデバッグビルドされた成果物の実際の出力画像データ。と正解画像データとの差分画像データ。 |
+| `diff/release/full/` | リリースビルドされた成果物の実際の出力画像データ。と正解画像データとの差分画像データ。 |
+| `diff/release/canvas/` | Canvas 版でリリースビルドされた成果物の実際の出力画像データと正解画像データとの差分画像データ。 |
+
+また、テストにはビルド成果物が必要です。
+あらかじめ `npm run build` などで `dist/raw/{release,debug}/{full,canvas}/engineFilesV{n}_{n}_{n}.js` ファイルを生成しておいてください。
+
 ## ライセンス
 本リポジトリは MIT License の元で公開されています。
 詳しくは [LICENSE](https://github.com/akashic-games/engine-files/blob/master/LICENSE) をご覧ください。
