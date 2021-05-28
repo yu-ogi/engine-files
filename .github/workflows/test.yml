@@ -39,6 +39,7 @@ jobs:
           npm run build:canvas:parts
           npm test
       - name: Archive artifact
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: engine_files_reftest_result
