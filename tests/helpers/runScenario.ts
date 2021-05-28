@@ -32,8 +32,6 @@ export async function runScenario(params: RunScenarioParameterObject): Promise<v
 				  }
 	});
 
-	await client.advanceUntil(() => client.game.scene().name === scenario.entrySceneName);
-
 	for (let frame of scenario.frames) {
 		const age = frame.age;
 		await client.advanceUntil(() => age <= client.game.age);

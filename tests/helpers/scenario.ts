@@ -25,7 +25,6 @@ export interface ScenarioFrame {
 }
 
 export interface Scenario {
-	entrySceneName: string;
 	seed?: number;
 	frames: ScenarioFrame[];
 }
