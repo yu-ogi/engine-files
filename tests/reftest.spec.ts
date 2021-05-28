@@ -1,5 +1,6 @@
+import * as fs from "fs";
 import * as path from "path";
-import { runScenario } from "./helpers/runScenario";
+import { runReftest } from "./helpers/runReftest";
 
 declare global {
 	namespace NodeJS {
@@ -30,34 +31,37 @@ const engineFilesPaths = [
 		engineFilesName: `engineFilesV${version}_Canvas.js`
 	}
 ];
+const fixturesPath = path.join(__dirname, "fixtures");
+const contentNames = fs
+	.readdirSync(fixturesPath)
+	.filter((filename) => fs.statSync(path.join(fixturesPath, filename)).isDirectory() && fs.existsSync(path.join(fixturesPath, filename, "game.json")));
 
-describe("reftest - acobench", (): void => {
-	for (const engineFilesPath of engineFilesPaths) {
-		describe(engineFilesPath.subDirectory, () => {
-			beforeAll(() => {
-				process.env.ENGINE_FILES_V3_PATH = path.resolve(__dirname, "..", "dist", "raw", engineFilesPath.subDirectory, engineFilesPath.engineFilesName);
-			});
-
-			test("compares pixels", async () => {
-				const results = await runScenario({
-					entrySceneName: "entry-scene",
-					outputDir: engineFilesPath.subDirectory,
-					contentPath: path.join(__dirname, "fixtures", "acobench"),
-					scenarios: require("./fixtures/acobench/scenario.json"),
-					threshold: 0.1,
-					seed,
-					filenameTransformer: age => `age_${("0000" + age).slice(-4)}_seed_${seed}.png`
+for (let contentName of contentNames) {
+	describe(`reftest - ${contentName}`, (): void => {
+		for (const engineFilesPath of engineFilesPaths) {
+			describe(engineFilesPath.subDirectory, () => {
+				beforeAll(() => {
+					process.env.ENGINE_FILES_V3_PATH = path.resolve(__dirname, "..", "dist", "raw", engineFilesPath.subDirectory, engineFilesPath.engineFilesName);
 				});
 
-				for (let result of results) {
-					expect(result.missingPixels).toBe(0);
-				}
-			});
+				test("compares pixels", async () => {
+					const results = await runReftest({
+						outputDir: engineFilesPath.subDirectory,
+						contentPath: path.join(fixturesPath, contentName),
+						threshold: 0.1,
+						filenameTransformer: age => `age_${("0000" + age).slice(-4)}_seed_${seed}.png`
+					});
 
-			afterAll(() => {
-				delete process.env.ENGINE_FILES_V3_PATH;
-				jest.resetModules();
+					for (let result of results) {
+						expect(result.missingPixels).toBe(0);
+					}
+				});
+
+				afterAll(() => {
+					delete process.env.ENGINE_FILES_V3_PATH;
+					jest.resetModules();
+				});
 			});
-		});
-	}
-});
+		}
+	});
+}

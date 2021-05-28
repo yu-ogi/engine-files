@@ -101,6 +101,8 @@ import { akashicEngine as g } from "@akashic/engine-files";
 
 ## テスト
 
+### reftest の実行
+
 `npm test` コマンドで reftest が実行されます。
 reftest で利用するコンテンツは `tests/fixtures/*/game.json` として格納し、 game.json と同一の場所にその他必要な設定ファイルとテスト結果を出力するディレクトリを配置する必要があります。
 
@@ -119,6 +121,14 @@ reftest で利用するコンテンツは `tests/fixtures/*/game.json` として
 
 また、テストにはビルド成果物が必要です。
 あらかじめ `npm run build` などで `dist/raw/{release,debug}/{full,canvas}/engineFilesV{n}_{n}_{n}.js` ファイルを生成しておいてください。
+
+### reftest の正解画像データの更新
+
+以下のコマンドで reftest に必要な正解画像データを更新できます。
+
+```sh
+npm run update-expected
+```
 
 ## ライセンス
 本リポジトリは MIT License の元で公開されています。
