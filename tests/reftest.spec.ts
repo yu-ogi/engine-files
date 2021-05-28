@@ -36,7 +36,7 @@ const contentNames = fs
 	.readdirSync(fixturesPath)
 	.filter((filename) => fs.statSync(path.join(fixturesPath, filename)).isDirectory() && fs.existsSync(path.join(fixturesPath, filename, "game.json")));
 
-for (let contentName of contentNames) {
+for (const contentName of contentNames) {
 	describe(`reftest - ${contentName}`, (): void => {
 		for (const engineFilesPath of engineFilesPaths) {
 			describe(engineFilesPath.subDirectory, () => {
@@ -52,7 +52,7 @@ for (let contentName of contentNames) {
 						filenameTransformer: age => `age_${("0000" + age).slice(-4)}_seed_${seed}.png`
 					});
 
-					for (let result of results) {
+					for (const result of results) {
 						expect(result.missingPixels).toBe(0);
 					}
 				});

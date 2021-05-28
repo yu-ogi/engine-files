@@ -32,12 +32,12 @@ export async function runScenario(params: RunScenarioParameterObject): Promise<v
 				  }
 	});
 
-	for (let frame of scenario.frames) {
+	for (const frame of scenario.frames) {
 		const age = frame.age;
 		await client.advanceUntil(() => age <= client.game.age);
 
 		if (frame.events) {
-			for (let event of frame.events) {
+			for (const event of frame.events) {
 				if (event.type === "pointDown") {
 					client.sendPointDown(event.x, event.y, event.id);
 				} else if (event.type === "pointUp") {
