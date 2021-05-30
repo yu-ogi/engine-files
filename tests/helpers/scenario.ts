@@ -1,25 +1,30 @@
-export type ScenarioEvent = ScenarioPointDownEvent | ScenarioPointUpEvent;
+export type ScenarioFrameEvent = ScenarioFramePointDownEvent | ScenarioFramePointUpEvent;
 
-export interface ScenarioPointDownEvent {
+export interface ScenarioFramePointDownEvent {
 	type: "pointDown";
 	id: number;
 	x: number;
 	y: number;
 }
 
-export interface ScenarioPointUpEvent {
+export interface ScenarioFramePointUpEvent {
 	type: "pointUp";
 	id: number;
 	x: number;
 	y: number;
 }
 
-export interface ScenarioSaveScreenshotOption {
+export interface ScenarioFrameSaveScreenshotOption {
 	expectedFilename: string;
 }
 
-export interface Scenario {
+export interface ScenarioFrame {
 	age: number;
-	events?: ScenarioEvent[];
-	saveScreenshot?: ScenarioSaveScreenshotOption;
+	events?: ScenarioFrameEvent[];
+	saveScreenshot?: ScenarioFrameSaveScreenshotOption;
+}
+
+export interface Scenario {
+	seed?: number;
+	frames: ScenarioFrame[];
 }

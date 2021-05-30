@@ -1,76 +1,79 @@
-[
-  {
-    "age": 30,
-    "saveScreenshot": {
-      "expectedFilename": "./expected/age_0030_seed_42.png"
-    }
-  },
-  {
-    "age": 45,
-    "events": [
-      {
-        "type": "pointDown",
-        "id": 1,
-        "x": 179,
-        "y": 135
+{
+  "seed": 42,
+  "frames": [
+    {
+      "age": 30,
+      "saveScreenshot": {
+        "expectedFilename": "./expected/age_0030_seed_42.png"
       }
-    ]
-  },
-  {
-    "age": 47,
-    "events": [
-      {
-        "type": "pointUp",
-        "id": 1,
-        "x": 179,
-        "y": 135
+    },
+    {
+      "age": 45,
+      "events": [
+        {
+          "type": "pointDown",
+          "id": 1,
+          "x": 179,
+          "y": 135
+        }
+      ]
+    },
+    {
+      "age": 47,
+      "events": [
+        {
+          "type": "pointUp",
+          "id": 1,
+          "x": 179,
+          "y": 135
+        }
+      ]
+    },
+    {
+      "age": 60,
+      "saveScreenshot": {
+        "expectedFilename": "./expected/age_0060_seed_42.png"
       }
-    ]
-  },
-  {
-    "age": 60,
-    "saveScreenshot": {
-      "expectedFilename": "./expected/age_0060_seed_42.png"
-    }
-  },
-  {
-    "age": 90,
-    "saveScreenshot": {
-      "expectedFilename": "./expected/age_0090_seed_42.png"
-    }
-  },
-  {
-    "age": 120,
-    "saveScreenshot": {
-      "expectedFilename": "./expected/age_0120_seed_42.png"
-    }
-  },
-  {
-    "age": 135,
-    "events": [
-      {
-        "type": "pointDown",
-        "id": 1,
-        "x": 181,
-        "y": 435
+    },
+    {
+      "age": 90,
+      "saveScreenshot": {
+        "expectedFilename": "./expected/age_0090_seed_42.png"
       }
-    ]
-  },
-  {
-    "age": 137,
-    "events": [
-      {
-        "type": "pointUp",
-        "id": 1,
-        "x": 181,
-        "y": 435
+    },
+    {
+      "age": 120,
+      "saveScreenshot": {
+        "expectedFilename": "./expected/age_0120_seed_42.png"
       }
-    ]
-  },
-  {
-    "age": 150,
-    "saveScreenshot": {
-      "expectedFilename": "./expected/age_0150_seed_42.png"
+    },
+    {
+      "age": 135,
+      "events": [
+        {
+          "type": "pointDown",
+          "id": 1,
+          "x": 181,
+          "y": 435
+        }
+      ]
+    },
+    {
+      "age": 137,
+      "events": [
+        {
+          "type": "pointUp",
+          "id": 1,
+          "x": 181,
+          "y": 435
+        }
+      ]
+    },
+    {
+      "age": 150,
+      "saveScreenshot": {
+        "expectedFilename": "./expected/age_0150_seed_42.png"
+      }
     }
-  }
-]
+  ]
+}
