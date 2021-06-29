@@ -35,10 +35,11 @@ const modules = [
 ];
 
 try {
-	modules.map(function (module) {
+	modules.forEach(function (module) {
 		const target = `@akashic/${module.name}@${module.tag || "latest"}`;
 		sh.exec(`npm install --save-exact --save-dev ${target}`);
-		const version = sh.exec(`npm info ${target} version`).replace(/\r?\n/g, "");
+		const infoCmd = sh.exec(`npm info ${target} version --json`);
+		const version = JSON.parse(infoCmd);
 		versionsAfterUpdate[module.name] = semver.valid(version);
 	});
 
