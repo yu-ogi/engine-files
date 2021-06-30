@@ -35,10 +35,11 @@ const modules = [
 ];
 
 try {
+	const npmPath = path.join(__dirname, "..", "node_modules/.bin/npm");
 	modules.forEach(function (module) {
 		const target = `@akashic/${module.name}@${module.tag || "latest"}`;
-		sh.exec(`./node_modules/.bin/npm install --save-exact --save-dev ${target}`);
-		const infoCmd = sh.exec(`./node_modules/.bin/npm info ${target} version --json`);
+		sh.exec(`${npmPath} install --save-exact --save-dev ${target}`);
+		const infoCmd = sh.exec(`${npmPath} info ${target} version --json`);
 		const version = JSON.parse(infoCmd);
 		versionsAfterUpdate[module.name] = semver.valid(version);
 	});
