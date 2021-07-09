@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.0.18
+* @akashic/akashic-engine: 3.1.0
+* @akashic/game-configuration: 1.0.1
+* @akashic/game-driver: 2.2.0
+* @akashic/pdi-types: 1.1.1
+* @akashic/headless-akashic: ^2.0.0
+* @akashic/pdi-browser: 2.0.0
+* @akashic/pdi-common-impl: 0.0.4
+* @akashic/playlog-client: 7.0.63
+
 ## 3.0.17
 * @akashic/akashic-engine: 3.0.4
 * @akashic/game-configuration: 1.0.1
