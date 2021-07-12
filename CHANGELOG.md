@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.19
+dependencies のインストール順でビルドが壊れることがある問題を修正。
+(各モジュールのバージョンは 3.0.18 と同一です)
+
 ## 3.0.18
 * @akashic/akashic-engine: 3.1.0
 * @akashic/game-configuration: 1.0.1
