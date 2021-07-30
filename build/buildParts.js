@@ -13,24 +13,19 @@ if (! /^(full|canvas)$/.test(buildMode)) {
 	process.exit(1);
 }
 
-function exec(cmd) {
-	const ret = sh.exec(cmd);
-	if (ret.code !== 0) {
-		console.error(`Failed to execute: ${cmd}`);
-		console.error(ret);
-		process.exit(1);
-	}
-	return ret;
-}
-
 console.log("start to build files");
 function build(inputFileName, outputFileName, inputDir, outputDir, debug, es5Downpile = false) {
 	const browserify = path.join(__dirname, "..", "node_modules", ".bin", "browserify");
 	const uglifyjs = path.join(__dirname, "..", "node_modules", ".bin", "uglifyjs");
 	const debugOption = debug ? "-d" : "";
-	const babel = es5Downpile ? "| babel" : "";
-	const outputFile = debug ? `> ${path.join(outputDir, outputFileName)}` : `| ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`;
-	const ret = exec(`${browserify} ${path.resolve(inputDir, inputFileName)} ${debugOption} -s ${path.basename(outputFileName, ".js")} ${babel} ${outputFile}`);
+	const babel = es5Downpile ? "babel" : "cat";
+	const outputFile = debug ? `cat > ${path.join(outputDir, outputFileName)}` : `${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`;
+	const execOption = { silent: true, fatal: true };
+
+	const ret =
+		sh.exec(`${browserify} ${path.resolve(inputDir, inputFileName)} ${debugOption} -s ${path.basename(outputFileName, ".js")}`, execOption)
+		.exec(babel, execOption)
+		.exec(outputFile, execOption);
 	if (0 < ret.code) {
 		throw new Error("error occurred");
 	}
