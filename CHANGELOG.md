@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.0.20
+* @akashic/akashic-engine: 3.1.1
+* @akashic/game-configuration: 1.0.1
+* @akashic/game-driver: 2.2.0
+* @akashic/pdi-types: 1.1.1
+* @akashic/headless-akashic: ^2.0.0
+* @akashic/pdi-browser: 2.0.0
+* @akashic/pdi-common-impl: 0.0.4
+* @akashic/playlog-client: 7.1.63
+
 ## 3.0.19
 dependencies のインストール順でビルドが壊れることがある問題を修正。
 (各モジュールのバージョンは 3.0.18 と同一です)
