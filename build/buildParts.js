@@ -13,28 +13,37 @@ if (! /^(full|canvas)$/.test(buildMode)) {
 	process.exit(1);
 }
 
-function exec(cmd) {
-	const ret = sh.exec(cmd);
-	if (ret.code !== 0) {
-		console.error(`Failed to execute: ${cmd}`);
-		console.error(ret);
-		process.exit(1);
-	}
-	return ret;
-}
-
-console.log("start to build files");
 function build(inputFileName, outputFileName, inputDir, outputDir, debug, es5Downpile = false) {
+	function assertSuccess(shellstring) {
+		if (shellstring.code !== 0) {
+			console.error(shellstring.stderr);
+			process.exit(1);
+		}
+	}
+
 	const browserify = path.join(__dirname, "..", "node_modules", ".bin", "browserify");
 	const uglifyjs = path.join(__dirname, "..", "node_modules", ".bin", "uglifyjs");
-	const debugOption = debug ? "-d" : "";
-	const babel = es5Downpile ? "| babel" : "";
-	const outputFile = debug ? `> ${path.join(outputDir, outputFileName)}` : `| ${uglifyjs} --comments -o ${path.join(outputDir, outputFileName)}`;
-	const ret = exec(`${browserify} ${path.resolve(inputDir, inputFileName)} ${debugOption} -s ${path.basename(outputFileName, ".js")} ${babel} ${outputFile}`);
-	if (0 < ret.code) {
-		throw new Error("error occurred");
+	const babel = path.join(__dirname, "..", "node_modules", ".bin", "babel");
+
+	const inputPath = path.resolve(inputDir, inputFileName);
+	const outputPath = path.join(outputDir, outputFileName);
+
+	let ss = sh.exec(`${browserify} ${inputPath} ${debug ? "-d" : ""} -s ${path.basename(outputFileName, ".js")}`, { silent: true });
+	assertSuccess(ss);
+
+	if (es5Downpile) {
+		ss = ss.exec(babel, { silent: true });
+		assertSuccess(ss);
 	}
+
+	if (debug) {
+		ss = ss.to(outputPath);
+	} else {
+		ss = ss.exec(`${uglifyjs} --comments -o ${outputPath}`);
+	}
+	assertSuccess(ss);
 }
+
 function buildEngineFiles(version, buildMode, inputDir, outputDir, debug) {
 	build(
 		buildMode === "canvas" ? "engineFiles.canvas.js" : "engineFiles.js",
@@ -44,6 +53,7 @@ function buildEngineFiles(version, buildMode, inputDir, outputDir, debug) {
 		debug
 	);
 }
+
 function buildPlayLogClient(version, inputDir, outputDir) {
 	if (!fs.existsSync(path.join(__dirname, "..", "node_modules", "@akashic", "playlog-client"))) {
 		console.log("playlog-client-file does not exist, so skip to build playlog-client.");
@@ -59,6 +69,7 @@ function buildPlayLogClient(version, inputDir, outputDir) {
 	);
 }
 
+console.log("start to build files");
 const packageJson = require(path.join(__dirname, "..", "package.json"));
 const inputDir = path.join(__dirname, "..", "src");
 
