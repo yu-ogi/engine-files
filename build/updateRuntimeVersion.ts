@@ -20,7 +20,7 @@ async function main(operation: Operation) {
 
 	if (process.argv.length < 3 || (operation !== "bump" && operation !== "reset")) {
 		console.error("please enter command as follows: ts-node updateRuntimeVersion.ts {bump|reset}");
-		console.error("Usage: ts-node updateRuntimeVersion.js bump");
+		console.error("Usage: ts-node updateRuntimeVersion.ts bump");
 		process.exit(1);
 	}
 
