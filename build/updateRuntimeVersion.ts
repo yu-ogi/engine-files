@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import { promises as fsPromises, existsSync } from "fs";
 import * as path from "path";
 
 interface RuntimeVersionJSON {
@@ -26,7 +26,7 @@ async function main(operation: Operation) {
 
 	let ret: RuntimeVersionJSON;
 
-	if (operation === "reset" || !fs.existsSync(runtimeVersionJSONPath)) {
+	if (operation === "reset" || !existsSync(runtimeVersionJSONPath)) {
 		console.log(`reset runtime-version`);
 		ret = {
 			"//": "このファイルは内部的に利用されます。手動での変更は避けてください。",
@@ -47,17 +47,8 @@ async function main(operation: Operation) {
 }
 
 async function writeRuntimeVersion(filepath: string, content: RuntimeVersionJSON) {
-	return new Promise<void>((resolve, reject) => {
-		fs.writeFile(
-			filepath,
-			JSON.stringify(content, undefined, 2),
-			(err) => {
-				if (err) {
-					reject(err);
-				} else {
-					resolve();
-				}
-			}
-		);
-	});
+	await fsPromises.writeFile(
+		filepath,
+		JSON.stringify(content, undefined, 2)
+	);
 }
