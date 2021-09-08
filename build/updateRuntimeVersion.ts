@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import * as path from "path";
 
 interface RuntimeVersionJSON {
 	"//": string;
@@ -21,7 +22,6 @@ async function main(operation: Operation) {
 		process.exit(1);
 	}
 
-	const path = await import("path");
 	const runtimeVersionJSONPath = path.join(__dirname, "..", "runtime-version.json");
 
 	let ret: RuntimeVersionJSON;
@@ -46,10 +46,10 @@ async function main(operation: Operation) {
 	await writeRuntimeVersion(runtimeVersionJSONPath, ret);
 }
 
-async function writeRuntimeVersion(path: string, content: RuntimeVersionJSON) {
+async function writeRuntimeVersion(filepath: string, content: RuntimeVersionJSON) {
 	return new Promise<void>((resolve, reject) => {
 		fs.writeFile(
-			path,
+			filepath,
 			JSON.stringify(content, undefined, 2),
 			(err) => {
 				if (err) {
