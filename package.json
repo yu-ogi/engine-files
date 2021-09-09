@@ -21,6 +21,8 @@
     "build:gr:zip": "zip -jr dist/akashic_engine-gr.zip ./dist/raw/gr/",
     "update-modules": "node build/updateInnerModules",
     "update-changelog": "node build/updateChangelog",
+    "runtime-version:bump": "ts-node build/updateRuntimeVersion.ts bump",
+    "runtime-version:reset": "ts-node build/updateRuntimeVersion.ts reset",
     "test": "npm run lint:md",
     "lint:md": "remark ./*.md --frail --no-stdout --quiet --rc-path ./.remarkrc"
   },
@@ -54,6 +56,7 @@
     "semver": "~5.5.0",
     "shelljs": "~0.8.2",
     "shx": "~0.2.2",
+    "ts-node": "^10.2.1",
     "uglify-js": "~3.4.6"
   },
   "optionalDependencies": {
