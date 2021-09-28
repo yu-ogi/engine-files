@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "inlineSourceMap": false,
+    "declaration": false,
+    "noEmit": false,
+    "strict": false,
+    "target": "es5",
+    "module": "commonjs"
+  }
+}
