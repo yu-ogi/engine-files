@@ -99,6 +99,18 @@ import { akashicEngine as g } from "@akashic/engine-files";
 2. `version` を更新し、
 3. `npm run build`
 
+## runtime-version.json の更新
+
+### インクリメント
+```sh
+npm run runtime-version:bump
+```
+
+### リセット
+```sh
+npm run runtime-version:reset
+```
+
 ## テスト
 
 ### reftest の実行

@@ -1,6 +1,6 @@
 {
   "name": "@akashic/engine-files",
-  "version": "3.0.20",
+  "version": "3.0.21",
   "description": "A library that manages versions of libraries related to Akashic Engine",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,8 @@
     "update-modules": "node build/updateInnerModules",
     "update-changelog": "node build/updateChangelog",
     "update-expected": "ts-node build/updateExpected.ts",
+    "runtime-version:bump": "ts-node build/updateRuntimeVersion.ts bump",
+    "runtime-version:reset": "ts-node build/updateRuntimeVersion.ts reset",
     "test": "run-p test:*",
     "test:reftest": "jest",
     "test:md": "remark ./*.md --frail --no-stdout --quiet --rc-path ./.remarkrc"
@@ -69,7 +71,7 @@
     "shelljs": "~0.8.4",
     "shx": "~0.3.3",
     "ts-jest": "^26.5.6",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.2.1",
     "typescript": "^4.2.4",
     "uglify-js": "~3.13.6"
   },
