@@ -1,6 +1,6 @@
 {
   "name": "@akashic/engine-files",
-  "version": "3.1.8",
+  "version": "3.1.9",
   "description": "A library that manages versions of libraries related to Akashic Engine",
   "main": "index.js",
   "scripts": {
@@ -45,7 +45,7 @@
   "dependencies": {
     "@akashic/akashic-engine": "3.4.1",
     "@akashic/game-configuration": "1.3.0",
-    "@akashic/game-driver": "2.7.0",
+    "@akashic/game-driver": "2.7.1",
     "@akashic/pdi-types": "1.3.0"
   },
   "devDependencies": {
