@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.2.0
+* @akashic/pdi-browser を dependencies に移動
+* @akashic/pdi-common-impl を dependencies に移動
+
 ## 3.1.9
 * @akashic/akashic-engine: 3.4.1
 * @akashic/game-configuration: 1.3.0
