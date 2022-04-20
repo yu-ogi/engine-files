@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2.2.0
+* @akashic/pdi-browser を dependencies に移動
+
 ## 2.1.57
 * @akashic/akashic-engine: 2.6.6
 * @akashic/akashic-pdi: 2.10.0
