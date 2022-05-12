@@ -55,7 +55,7 @@ for (const contentName of contentNames) {
 					for (const result of results) {
 						expect(result.missingPixels).toBe(0);
 					}
-				}, 15000);
+				}, 30000);
 
 				afterAll(() => {
 					delete process.env.ENGINE_FILES_V3_PATH;
