@@ -120,6 +120,6 @@ jobs:
           title: 'Update to ${{ steps.variables.outputs.next_version }}'
           body: |
             # このPullRequestが解決する内容
-            内部モジュールの更新します。
+            内部モジュールを更新します。
           labels: |
             dependencies
