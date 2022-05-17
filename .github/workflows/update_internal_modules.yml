@@ -1,0 +1,125 @@
+name: Update Internal Modules
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_branch:
+        type: string
+        description: 'ベースにするブランチ。v3 の場合は "main", v2 の場合は "v2-main", v1 の場合は "v1-main" を指定。'
+        required: true
+        default: main
+      version:
+        type: choice
+        description: 次の engine-files のバージョン。更新しない場合は "as-is" を指定。
+        required: true
+        options:
+          - patch
+          - minor
+          - as-is
+      akashic_engine:
+        description: '@akashic/akashic-engine'
+        required: true
+        type: boolean
+        default: true
+      game_driver:
+        description: '@akashic/game-driver'
+        required: true
+        type: boolean
+        default: true
+      pdi_browser:
+        description: '@akashic/pdi-browser'
+        required: true
+        type: boolean
+        default: true
+      game_configuration:
+        description: '@akashic/game-configuration'
+        required: true
+        type: boolean
+        default: true
+      pdi_common_impl:
+        description: '@akashic/pdi-common-impl'
+        required: true
+        type: boolean
+        default: true
+      pdi_types:
+        description: '@akashic/pdi-types'
+        required: true
+        type: boolean
+        default: true
+      headless_akashic:
+        description: '@akashic/headless-akashic'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  update_internal_modules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+      - name: Update akashic-engine
+        if: ${{ github.event.inputs.akashic_engine == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/akashic-engine" -t minor -u
+      - name: Update game-driver
+        if: ${{ github.event.inputs.game_driver == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/game-driver" -t minor -u
+      - name: Update pdi-browser
+        if: ${{ github.event.inputs.pdi_browser == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/pdi-browser" -t minor -u
+      - name: Update game-configuration
+        if: ${{ github.event.inputs.game_configuration == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/game-configuration" -u
+      - name: Update pdi-common-impl
+        if: ${{ github.event.inputs.pdi_common_impl == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/pdi-common-impl" -u
+      - name: Update pdi-types
+        if: ${{ github.event.inputs.pdi_types == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/pdi-types" -u
+      - name: Update headless-akashic
+        if: ${{ github.event.inputs.headless_akashic == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/headless-akashic" -u
+      - name: Bump Version
+        if: ${{ github.event.inputs.version != 'as-is' }}
+        run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
+      - name: Check Diff
+        run: |
+          if [ $(git diff --name-only | wc -l) -eq "0" ]; then
+            # この時点で差分がなければ更新する必要がないため失敗とみなす
+            echo "::error::更新するモジュールが存在しないため処理を中断します"
+            exit 1
+          fi
+      - name: Install project
+        run: |
+          npm install
+      - name: Update CHANGELOG.md
+        if: ${{ github.event.inputs.version != 'as-is' }}
+        run: npm run update-changelog
+      - name: Set Variables
+        id: variables
+        run: |
+          NEXT_VERSION=$(cat package.json | jq -r .version)
+          echo "::set-output name=next_version::${NEXT_VERSION}"
+      - name: Create commits
+        run: |
+          git config user.name 'github-actions'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "Update to ${{ steps.variables.outputs.next_version }}"
+      - name: Create PullRequest
+        uses: peter-evans/create-pull-request@v4
+        with:
+          base: ${{ github.event.inputs.target_branch }}
+          branch-suffix: timestamp
+          delete-branch: true
+          title: 'Update to ${{ steps.variables.outputs.next_version }}'
+          body: |
+            # このPullRequestが解決する内容
+            内部モジュールの更新します。
+          labels: |
+            dependencies
