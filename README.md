@@ -65,7 +65,7 @@ import { akashicEngine as g } from "@akashic/engine-files";
 
 ```
 
-## 更新方法
+## 内部モジュールの更新方法
 [こちら](https://github.com/akashic-games/engine-files/actions/workflows/update_internal_modules.yml) からワークフローを実行してください。
 更新が必要なモジュールをチェックした後に `Run Workflow` を実行することで PullRequest が作成されます。
 
