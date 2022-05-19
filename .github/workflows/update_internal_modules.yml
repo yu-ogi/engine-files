@@ -26,23 +26,8 @@ on:
         required: true
         type: boolean
         default: true
-      game_configuration:
-        description: '@akashic/game-configuration'
-        required: true
-        type: boolean
-        default: true
-      pdi_common_impl:
-        description: '@akashic/pdi-common-impl'
-        required: true
-        type: boolean
-        default: true
-      pdi_types:
-        description: '@akashic/pdi-types'
-        required: true
-        type: boolean
-        default: true
-      headless_akashic:
-        description: '@akashic/headless-akashic'
+      akashic_pdi:
+        description: '@akashic/akashic-pdi'
         required: true
         type: boolean
         default: true
@@ -67,18 +52,9 @@ jobs:
       - name: Update pdi-browser
         if: ${{ github.event.inputs.pdi_browser == 'true' }}
         run: npx -y npm-check-updates -f "@akashic/pdi-browser" -t minor -u
-      - name: Update game-configuration
-        if: ${{ github.event.inputs.game_configuration == 'true' }}
-        run: npx -y npm-check-updates -f "@akashic/game-configuration" -u
-      - name: Update pdi-common-impl
-        if: ${{ github.event.inputs.pdi_common_impl == 'true' }}
-        run: npx -y npm-check-updates -f "@akashic/pdi-common-impl" -u
-      - name: Update pdi-types
-        if: ${{ github.event.inputs.pdi_types == 'true' }}
-        run: npx -y npm-check-updates -f "@akashic/pdi-types" -u
-      - name: Update headless-akashic
-        if: ${{ github.event.inputs.headless_akashic == 'true' }}
-        run: npx -y npm-check-updates -f "@akashic/headless-akashic" -u
+      - name: Update akashic-pdi
+        if: ${{ github.event.inputs.akashic_pdi == 'true' }}
+        run: npx -y npm-check-updates -f "@akashic/akashic-pdi" -t minor -u
       - name: Bump Version
         if: ${{ github.event.inputs.version != 'as-is' }}
         run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
