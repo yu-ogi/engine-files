@@ -12,14 +12,10 @@ const name = `engineFilesV${version}`;
 
 async function main() {
 	await fs.mkdir(path.resolve(root, "dist", "raw", "debug", "full"), { recursive: true });
-	await fs.mkdir(path.resolve(root, "dist", "raw", "debug", "canvas"), { recursive: true });
 	await fs.mkdir(path.resolve(root, "dist", "raw", "release", "full"), { recursive: true });
-	await fs.mkdir(path.resolve(root, "dist", "raw", "release", "canvas"), { recursive: true });
 
 	await exec(`npx -y browserify ./src/engineFiles.js -t [babelify] -s ${name} -o ./dist/raw/debug/full/${name}.js`, { cwd });
 	await exec(`npx -y uglifyjs ./dist/raw/debug/full/${name}.js --comments -o ./dist/raw/release/full/${name}.js`, { cwd });
-	await exec(`npx -y browserify ./src/engineFiles.canvas.js -t [babelify] -s ${name} -o ./dist/raw/debug/canvas/${name}_Canvas.js`, { cwd });
-	await exec(`npx -y uglifyjs ./dist/raw/debug/canvas/${name}_Canvas.js --comments -o ./dist/raw/release/canvas/${name}_Canvas.js`, { cwd });
 }
 
 main()
