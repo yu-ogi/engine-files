@@ -3,11 +3,6 @@ name: Update Internal Modules
 on:
   workflow_dispatch:
     inputs:
-      base_branch:
-        type: string
-        description: 'ベースにするブランチ。v3 の場合は "main", v2 の場合は "v2-main", v1 の場合は "v1-main" を指定。'
-        required: true
-        default: main
       version:
         type: choice
         description: 次の engine-files のバージョン。更新しない場合は "as-is" を指定。
@@ -114,7 +109,6 @@ jobs:
       - name: Create PullRequest
         uses: peter-evans/create-pull-request@v4
         with:
-          base: ${{ github.event.inputs.target_branch }}
           branch-suffix: timestamp
           delete-branch: true
           title: 'Update to ${{ steps.variables.outputs.next_version }}'
