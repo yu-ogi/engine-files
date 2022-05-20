@@ -31,3 +31,18 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           npm_token: ${{ secrets.NPM_TOKEN }}
+      - name: Upload Artifacts
+        working-directory: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version=$(cat ../package.json | jq -r .version)
+          if [ $(gh release view v${version} --json assets | jq ".assets | length") != "0" ]; then
+            exit 0
+          fi
+          basename=$(basename ./raw/debug/full/engineFilesV*.js .js)
+          cp ./raw/release/full/${basename}.js ./${basename}.js
+          cp ./raw/release/canvas/${basename}_Canvas.js ./${basename}_Canvas.js
+          cp ./raw/debug/full/${basename}.js ./${basename}.debug.js
+          cp ./raw/debug/canvas/${basename}_Canvas.js ./${basename}_Canvas.debug.js
+          gh release upload v${version} ${basename}.js ${basename}_Canvas.js ${basename}.debug.js ${basename}_Canvas.debug.js
