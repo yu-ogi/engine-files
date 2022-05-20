@@ -36,6 +36,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          if [ $(gh release view v3.2.0 --json assets | jq ".assets | length") != "0" ]; then
+            exit 0
+          fi
           basename=$(basename ./raw/debug/full/engineFilesV*.js .js)
           cp ./raw/release/full/${basename}.js ./${basename}.js
           cp ./raw/release/canvas/${basename}_Canvas.js ./${basename}_Canvas.js
