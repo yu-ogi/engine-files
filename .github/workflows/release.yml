@@ -42,7 +42,5 @@ jobs:
           fi
           basename=$(basename ./raw/debug/full/engineFilesV*.js .js)
           cp ./raw/release/full/${basename}.js ./${basename}.js
-          cp ./raw/release/canvas/${basename}_Canvas.js ./${basename}_Canvas.js
           cp ./raw/debug/full/${basename}.js ./${basename}.debug.js
-          cp ./raw/debug/canvas/${basename}_Canvas.js ./${basename}_Canvas.debug.js
-          gh release upload v${version} ${basename}.js ${basename}_Canvas.js ${basename}.debug.js ${basename}_Canvas.debug.js
+          gh release upload v${version} ${basename}.js ${basename}.debug.js
