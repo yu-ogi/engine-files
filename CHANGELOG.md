@@ -1,398 +1,66 @@
 # CHANGELOG
 
-## 3.2.0
+## 2.2.0
 * @akashic/pdi-browser を dependencies に移動
-* @akashic/pdi-common-impl を dependencies に移動
 
-## 3.1.9
-* @akashic/akashic-engine: 3.4.1
-* @akashic/game-configuration: 1.3.0
-* @akashic/game-driver: 2.7.1
-* @akashic/pdi-types: 1.3.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-* @akashic/playlog-client: 7.2.1
+## 2.1.57
+* @akashic/akashic-engine: 2.6.6
+* @akashic/akashic-pdi: 2.10.0
+* @akashic/game-driver: 1.10.1
+* @akashic/pdi-browser: 1.11.1
+* @akashic/playlog-client: 7.0.61
+(このリポジトリの利用側の事情のため、 v2.1.56 と同一の内容でpublishしなおしています)
 
-## 3.1.8
-* @akashic/akashic-engine: 3.4.1
-* @akashic/game-configuration: 1.3.0
-* @akashic/game-driver: 2.7.0
-* @akashic/pdi-types: 1.3.0
-* @akashic/playlog-client: 7.2.1
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-
-## 3.1.7
-* @akashic/akashic-engine: 3.4.0
-* @akashic/game-configuration: 1.3.0
-* @akashic/game-driver: 2.7.0
-* @akashic/pdi-types: 1.3.0
-* @akashic/playlog-client: 7.2.1
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-
-## 3.1.6
-* @akashic/akashic-engine: 3.3.0
-* @akashic/game-configuration: 1.2.0
-* @akashic/game-driver: 2.6.0
-* @akashic/pdi-types: 1.3.0
-* @akashic/playlog-client: 7.2.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-
-## 3.1.5
-* @akashic/akashic-engine: 3.2.3
-* @akashic/game-configuration: 1.1.0
-* @akashic/game-driver: 2.4.3
-* @akashic/pdi-types: 1.3.0
-* @akashic/playlog-client: 7.2.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-
-## 3.1.4
-* @akashic/akashic-engine: 3.2.2
-* @akashic/game-configuration: 1.1.0
-* @akashic/game-driver: 2.4.3
-* @akashic/pdi-types: 1.3.0
-* @akashic/playlog-client: 7.2.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-
-## 3.1.3
-* @akashic/akashic-engine: 3.2.2
-* @akashic/game-configuration: 1.1.0
-* @akashic/game-driver: 2.4.2
-* @akashic/pdi-types: 1.3.0
-* @akashic/playlog-client: 7.2.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-
-## 3.1.2
-* @akashic/akashic-engine: 3.2.1
-* @akashic/game-configuration: 1.1.0
-* @akashic/game-driver: 2.4.1
-* @akashic/pdi-types: 1.3.0
-* @akashic/playlog-client: 7.1.63
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-
-## 3.1.1
-* @akashic/akashic-engine: 3.2.0
-* @akashic/game-configuration: 1.1.0
-* @akashic/game-driver: 2.4.1
-* @akashic/pdi-types: 1.3.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-* @akashic/playlog-client: 7.1.63
-
-## 3.1.0
-* @akashic/akashic-engine: 3.2.0
-* @akashic/game-configuration: 1.1.0
-* @akashic/game-driver: 2.4.0
-* @akashic/pdi-types: 1.3.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.2.0
-* @akashic/pdi-common-impl: 0.2.0
-* @akashic/playlog-client: 7.1.63
-
-## 3.0.22
-* @akashic/akashic-engine: 3.1.2
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.3.1
-* @akashic/pdi-types: 1.2.0
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.1.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.1.63
-
-## 3.0.21
-* @akashic/akashic-engine: 3.1.1
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.2.0
-* @akashic/pdi-types: 1.1.1
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.1.63
-(このリポジトリの利用側の事情のため、 v3.0.20 と同一の内容でpublishしなおしています)
-
-## 3.0.20
-* @akashic/akashic-engine: 3.1.1
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.2.0
-* @akashic/pdi-types: 1.1.1
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.1.63
-
-## 3.0.19
+## 2.1.56
 dependencies のインストール順でビルドが壊れることがある問題を修正。
 (各モジュールのバージョンは 3.0.18 と同一です)
 
-## 3.0.18
-* @akashic/akashic-engine: 3.1.0
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.2.0
-* @akashic/pdi-types: 1.1.1
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.63
-
-## 3.0.17
-* @akashic/akashic-engine: 3.0.4
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.1.3
-* @akashic/pdi-types: 1.1.1
-* @akashic/headless-akashic: ^2.0.0
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.63
-
-## 3.0.16
-* @akashic/akashic-engine: 3.0.4
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.1.1
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.63
-(このリポジトリの利用側の事情のため、 v3.0.15 と同一の内容でpublishしなおしています)
-
-## 3.0.15
-`window` が存在しない環境では pdi-browser を require しないように修正
-
-## 3.0.14
-* @akashic/akashic-engine: 3.0.4
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.1.1
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.63
-
-## 3.0.13
-* @akashic/akashic-engine: 3.0.4
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.0.3
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.63
-
-## 3.0.12
-* @akashic/akashic-engine: 3.0.4
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.1.0
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.63
-
-## 3.0.11
-* @akashic/akashic-engine: 3.0.4
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.1.0
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.62
-
-## 3.0.10
-* @akashic/akashic-engine: 3.0.3
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.0.3
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
+## 2.1.55
+* @akashic/akashic-engine: 2.6.6
+* @akashic/akashic-pdi: 2.10.0
+* @akashic/game-driver: 1.10.1
+* @akashic/pdi-browser: 1.11.1
 * @akashic/playlog-client: 7.0.61
-(このリポジトリの利用側の事情のため、 v3.0.9 と同一の内容でpublishしなおしています)
+(このリポジトリの利用側の事情のため、 v2.1.54 と同一の内容でpublishしなおしています)
 
-## 3.0.9
-* @akashic/akashic-engine: 3.0.3
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.0.3
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
+## 2.1.54
+* @akashic/akashic-engine: 2.6.6
+* @akashic/akashic-pdi: 2.10.0
+* @akashic/game-driver: 1.10.1
+* @akashic/pdi-browser: 1.11.1
 * @akashic/playlog-client: 7.0.61
-(このリポジトリの利用側の事情のため、 v3.0.8 と同一の内容でpublishしなおしています)
+(このリポジトリの利用側の事情のため、 v2.1.53 と同一の内容でpublishしなおしています)
 
-## 3.0.8
-* @akashic/akashic-engine: 3.0.3
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.0.3
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
+## 2.1.53
+* @akashic/akashic-engine: 2.6.6
+* @akashic/akashic-pdi: 2.10.0
+* @akashic/game-driver: 1.10.1
+* @akashic/pdi-browser: 1.11.1
 * @akashic/playlog-client: 7.0.61
-(このリポジトリの利用側の事情のため、 v3.0.7 と同一の内容でpublishしなおしています)
+(このリポジトリの利用側の事情のため、 v2.1.52 と同一の内容でpublishしなおしています)
 
-## 3.0.7
-* @akashic/akashic-engine: 3.0.3
-* @akashic/game-configuration: 1.0.1
-* @akashic/game-driver: 2.0.3
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
+## 2.1.52
+* @akashic/akashic-engine: 2.6.6
+* @akashic/akashic-pdi: 2.10.0
+* @akashic/game-driver: 1.10.1
+* @akashic/pdi-browser: 1.11.1
 * @akashic/playlog-client: 7.0.61
+(このリポジトリの利用側の事情のため、 v2.1.51 と同一の内容でpublishしなおしています)
 
-## 3.0.6
-* @akashic/akashic-engine: 3.0.3
-* @akashic/game-driver: 2.0.3
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
+## 2.1.51
+* @akashic/akashic-engine: 2.6.6
+* @akashic/akashic-pdi: 2.10.0
+* @akashic/game-driver: 1.10.1
+* @akashic/pdi-browser: 1.11.1
 * @akashic/playlog-client: 7.0.61
+(このリポジトリの利用側の事情のため、 v2.1.50 と同一の内容でpublishしなおしています)
 
-## 3.0.5
-* @akashic/akashic-engine: 3.0.3
-* @akashic/game-driver: 2.0.2
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
+## 2.1.50
+* @akashic/akashic-engine: 2.6.6
+* @akashic/akashic-pdi: 2.10.0
+* @akashic/game-driver: 1.10.1
+* @akashic/pdi-browser: 1.11.1
 * @akashic/playlog-client: 7.0.61
-
-## 3.0.4
-* @akashic/akashic-engine: 3.0.3
-* @akashic/game-driver: 2.0.1
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.61
-
-## 3.0.3
-* @akashic/akashic-engine: 3.0.2
-* @akashic/game-driver: 2.0.0
-* @akashic/pdi-types: 1.1.1
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.61
-
-## 3.0.2
-* @akashic/akashic-engine: 3.0.1
-* @akashic/game-driver: 2.0.0
-* @akashic/pdi-types: 1.1.0
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.61
-
-## 3.0.1
-* @akashic/akashic-engine: 3.0.0
-* @akashic/game-driver: 2.0.0
-* @akashic/pdi-types: 1.1.0
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.61
-
-## 3.0.0
-* @akashic/akashic-engine: 3.0.0
-* @akashic/game-driver: 2.0.0
-* @akashic/pdi-types: 1.1.0
-* @akashic/pdi-browser: 2.0.0
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.61
-(publish ミスのため、このバージョンはスキップされます)
-
-## 3.0.0-beta.11
-* @akashic/akashic-engine: 3.0.0-beta.37
-* @akashic/game-driver: 2.0.0-beta.12
-* @akashic/pdi-types: 1.1.0
-* @akashic/pdi-browser: 2.0.0-beta.11
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.58
-
-## 3.0.0-beta.10
-* @akashic/akashic-engine: 3.0.0-beta.36
-* @akashic/game-driver: 2.0.0-beta.11
-* @akashic/pdi-types: 1.1.0
-* @akashic/pdi-browser: 2.0.0-beta.10
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.42
-
-## 3.0.0-beta.9
-* @akashic/akashic-engine: 3.0.0-beta.30
-* @akashic/game-driver: 2.0.0-beta.9
-* @akashic/pdi-types: 1.1.0
-* @akashic/pdi-browser: 2.0.0-beta.10
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.42
-(このリポジトリの利用側の事情のため、 v3.0.0-beta.8 と同一の内容でpublishしなおしています)
-
-## 3.0.0-beta.8
-* @akashic/akashic-engine: 3.0.0-beta.30
-* @akashic/game-driver: 2.0.0-beta.9
-* @akashic/pdi-types: 1.1.0
-* @akashic/pdi-browser: 2.0.0-beta.10
-* @akashic/pdi-common-impl: 0.0.4
-* @akashic/playlog-client: 7.0.42
-
-## 3.0.0-beta.7
-* @akashic/akashic-engine: 3.0.0-beta.28
-* @akashic/game-driver: 2.0.0-beta.8
-* @akashic/pdi-types: 1.0.1
-* @akashic/pdi-browser: 2.0.0-beta.8
-* @akashic/pdi-common-impl: 0.0.3
-* @akashic/playlog-client: 7.0.32
-
-## 3.0.0-beta.6
-* @akashic/pdi-types: 1.0.0
-* @akashic/akashic-engine: 3.0.0-beta.26
-* @akashic/game-driver: 2.0.0-beta.8
-* @akashic/pdi-browser: 2.0.0-beta.7
-* @akashic/playlog-client: 7.0.32
-
-## 3.0.0-beta.5
-* @akashic/akashic-engine: 3.0.0-beta.19
-* @akashic/akashic-pdi: 3.0.0-beta.1
-* @akashic/game-driver: 2.0.0-beta.7
-* @akashic/pdi-browser: 2.0.0-beta.4
-* @akashic/playlog-client: 7.0.32
-
-## 3.0.0-beta.4
-* @akashic/akashic-engine: 3.0.0-beta.18
-* @akashic/akashic-pdi: 3.0.0-beta.1
-* @akashic/game-driver: 2.0.0-beta.7
-* @akashic/pdi-browser: 2.0.0-beta.4
-* @akashic/playlog-client: 7.0.32
-
-## 3.0.0-beta.3
-* @akashic/akashic-engine: 3.0.0-beta.17
-* @akashic/akashic-pdi: 3.0.0-beta.1
-* @akashic/game-driver: 2.0.0-beta.6
-* @akashic/pdi-browser: 2.0.0-beta.3
-* @akashic/playlog-client: 7.0.31
-
-## 3.0.0-beta.2
-* @akashic/akashic-engine: 3.0.0-beta.8
-* @akashic/akashic-pdi: 3.0.0-beta.1
-* @akashic/game-driver: 2.0.0-beta.2
-* @akashic/pdi-browser: 2.0.0-beta.1
-* @akashic/playlog-client: 7.0.28
-
-## 3.0.0-beta.1
-* @akashic/akashic-engine: 3.0.0-beta.4
-* @akashic/akashic-pdi: 3.0.0-beta.0
-* @akashic/game-driver: 2.0.0-beta.0
-* @akashic/pdi-browser: 2.0.0-beta.0
-* @akashic/playlog-client: 7.0.26
-
-## 3.0.0-beta.0
-* @akashic/akashic-engine: 3.0.0-beta.2
-* @akashic/akashic-pdi: 3.0.0-beta.0
-* @akashic/game-driver: 2.0.0-beta.0
-* @akashic/pdi-browser: 2.0.0-beta.0
-* @akashic/playlog-client: 7.0.20
 
 ## 2.1.49
 * @akashic/akashic-engine: 2.6.6
