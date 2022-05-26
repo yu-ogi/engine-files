@@ -82,11 +82,17 @@ jobs:
       - name: Bump Version
         if: ${{ github.event.inputs.version != 'as-is' }}
         run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
-      - name: Check Diff
+      - name: Check Version
         run: |
           if [ $(git diff --name-only | wc -l) -eq "0" ]; then
             # この時点で差分がなければ更新する必要がないため失敗とみなす
             echo "::error::更新するモジュールが存在しないため処理を中断します"
+            exit 1
+          fi
+          if [ $(npm ls --depth=1 @akashic/akashic-engine | grep @akashic/akashic-engine | grep -v deduped | wc -l | tr -d ' ') != "1" ]; then
+            # headless-akashic への参照が存在するため、depth=4 辺りで他バージョンの akashic-engine が入ってしまう。
+            # そのため、depth=1 (孫依存まで) を指定し、game-driver, pdi-browser との依存の食い違いをチェックしている。
+            echo "::error::複数バージョンの akashic-engine がインストールされている可能性があるため処理を中断します"
             exit 1
           fi
       - name: Install project
